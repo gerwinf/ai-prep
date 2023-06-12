@@ -16,7 +16,7 @@ const questions = [
   {
     id: 2,
     name: "Technical",
-    description: "From Google, Meta, and Apple",
+    description: "From McKinsey, BCG, Bain",
     difficulty: "Medium",
   },
 ];
