@@ -9,7 +9,7 @@ import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
 const questions = [
   {
     id: 1,
-    name: "Behavioral Interview",
+    name: "Behavioral",
     description: "Answer Personal Experience Questions (PEI)",
     difficulty: "Easy",
   },
@@ -419,7 +419,7 @@ export default function DemoPage() {
                     as you leave the page.
                   </p>
                 </div>
-                <Link
+                {/* <Link
                   href="https://github.com/Tameyer41/liftoff"
                   target="_blank"
                   className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
@@ -451,7 +451,7 @@ export default function DemoPage() {
                     </svg>
                   </span>
                   Star on Github
-                </Link>
+                </Link> */}
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -498,7 +498,7 @@ export default function DemoPage() {
                       ? "Structure this case: Your client is a global tech company that's developing a new artificial intelligence product. They are planning to launch ..."
                       : selectedInterviewer.name === "Richard"
                       ? "Uber is looking to expand its product line. Talk me through how you would approach this problem."
-                      : "You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"}
+                      : "PEI: You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"}
                   </h2>
                   <span className="text-[14px] leading-[20px] text-[#1a2b3b] font-normal mb-4">
                     Asked by top companies like McKinsey, BCG, and Bain
@@ -775,7 +775,7 @@ export default function DemoPage() {
                     >
                       Restart demo
                     </button>
-                    <Link
+                    {/* <Link
                       href="https://github.com/Tameyer41/liftoff"
                       target="_blank"
                       className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
@@ -807,7 +807,7 @@ export default function DemoPage() {
                         </svg>
                       </span>
                       Star on Github
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               )}
@@ -1403,7 +1403,7 @@ export default function DemoPage() {
                 <ul className="mb-auto list-none">
                   <li className="list-none flex items-center">
                     <p className="text-[12px] font-extrabold text-[#1E293B]">
-                      Liftoff
+                      AIprep
                     </p>
                   </li>
                   <li className="mt-4 list-none flex items-center rounded-[9px] text-gray-900 py-[2px]">
@@ -1669,9 +1669,11 @@ export default function DemoPage() {
                       className="text-[#1a2b3b] text-[14px] leading-[18px] font-semibold absolute"
                     >
                       {selected.name === "Behavioral"
-                        ? "Tell me about yourself"
+                        ? "PEI: Tell me about a time when you led a team through a difficult situation."
                         : selectedInterviewer.name === "John"
                         ? "What is a Hash Table, and what is the average case for each of its operations?"
+                        : selectedInterviewer.name === "Jenny"
+                        ? "Structure this case: Your client is a global tech company that's developing a new artificial intelligence product. They are planning to launch ..."
                         : selectedInterviewer.name === "Richard"
                         ? "Uber is looking to expand its product line. How would you go about doing this?"
                         : "You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"}
@@ -1686,9 +1688,9 @@ export default function DemoPage() {
                         </li>
                       ) : (
                         <li className="list-none max-w-[400px]">
-                          Start off by explaining what the function does, and
+                          {/* Start off by explaining what the function does, and
                           its time and space complexities. Then go into how you
-                          would optimize it.
+                          would optimize it. */}
                         </li>
                       )}
                     </ul>
