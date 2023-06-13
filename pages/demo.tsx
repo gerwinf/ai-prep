@@ -9,37 +9,43 @@ import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
 const questions = [
   {
     id: 1,
-    name: "Behavioral",
-    description: "From LinkedIn, Amazon, Adobe",
+    name: "Behavioral Interview",
+    description: "Answer Personal Experience Questions (PEI)",
     difficulty: "Easy",
   },
   {
     id: 2,
-    name: "Technical",
-    description: "From McKinsey, BCG, Bain",
+    name: "Case Interview",
+    description: "Structure case prompts from McKinsey, BCG, Bain",
     difficulty: "Medium",
   },
 ];
 
 const interviewers = [
+  // {
+  //   id: "John",
+  //   name: "John",
+  //   description: "Consultant",
+  //   level: "L3",
+  // },
+  // {
+  //   id: "Richard",
+  //   name: "Richard",
+  //   description: "Partner",
+  //   level: "L5",
+  // },
+  // {
+  //   id: "Sarah",
+  //   name: "Sarah",
+  //   description: "Analyst",
+  //   level: "L7",
+  // },
   {
-    id: "John",
-    name: "John",
-    description: "Software Engineering",
-    level: "L3",
-  },
-  {
-    id: "Richard",
-    name: "Richard",
-    description: "Product Management",
-    level: "L5",
-  },
-  {
-    id: "Sarah",
-    name: "Sarah",
-    description: "Other",
-    level: "L7",
-  },
+    id: "Jenny",
+    name: "Jenny",
+    description: "Senior Consultant",
+    level: "L2",
+  }
 ];
 
 const ffmpeg = createFFmpeg({
@@ -191,10 +197,10 @@ export default function DemoPage() {
       const formData = new FormData();
       formData.append("file", output, `${unique_id}.mp3`);
       formData.append("model", "whisper-1");
-
+    
       const question =
         selected.name === "Behavioral"
-          ? `Tell me about yourself. Why don${`’`}t you walk me through your resume?`
+          ? "PEI: Tell me about a time when you led a team through a difficult situation"
           : selectedInterviewer.name === "John"
           ? "What is a Hash Table, and what is the average case and worst case time for each of its operations?"
           : selectedInterviewer.name === "Richard"
@@ -236,8 +242,8 @@ export default function DemoPage() {
             results.transcript
           }. ${
             selected.name === "Behavioral"
-              ? "Please also give feedback on the candidate's communication skills. Make sure their response is structured (perhaps using the STAR or PAR frameworks)."
-              : "Please also give feedback on the candidate's communication skills. Make sure they accurately explain their thoughts in a coherent way. Make sure they stay on topic and relevant to the question."
+              ? "Please also give feedback on the candidate's communication skills. Make sure their response is structured and communication is consise and persuasive. They should also demonstrate Leadership Abilities, Client Readiness, and Personal Impact."
+              : "Please also give feedback on the candidate's clarity, logic, and comprehensiveness. Make sure their structure is easy to understand and follow, it makes logical sense and flows from one point to the next in a coherent way, and they cover all relevant aspects of the problem."
           } \n\n\ Feedback on the candidate's response:`;
 
           setGeneratedFeedback("");
@@ -299,6 +305,30 @@ export default function DemoPage() {
       setLoading(false);
       setCameraLoaded(true);
     }, 1000);
+  };
+
+  const getVideoUrl = () => {
+    if (selectedInterviewer.name === "John") {
+      return selected.name === "Behavioral"
+        ? "https://liftoff-public.s3.amazonaws.com/DemoInterviewMale.mp4"
+        : "https://liftoff-public.s3.amazonaws.com/JohnTechnical.mp4";
+    } else if (selectedInterviewer.name === "Richard") {
+      return selected.name === "Behavioral"
+        ? "https://liftoff-public.s3.amazonaws.com/RichardBehavioral.mp4"
+        : "https://liftoff-public.s3.amazonaws.com/RichardTechnical.mp4";
+    } else if (selectedInterviewer.name === "Sarah") {
+      return selected.name === "Behavioral"
+        ? "https://liftoff-public.s3.amazonaws.com/BehavioralSarah.mp4"
+        : "https://liftoff-public.s3.amazonaws.com/SarahTechnical.mp4";
+    } else if (selectedInterviewer.name === "Jenny") {
+      return selected.name === "Behavioral"
+        ? "https://aiprep.s3.eu-north-1.amazonaws.com/PEI+-+Leadership.mp4"
+        : "https://aiprep.s3.eu-north-1.amazonaws.com/Case+-+Product+Launch.mp4";
+    } else {
+      return selected.name === "Behavioral"
+        ? "https://liftoff-public.s3.amazonaws.com/DemoInterviewMale.mp4"
+        : "https://liftoff-public.s3.amazonaws.com/JohnTechnical.mp4";
+    }
   };
 
   return (
@@ -461,15 +491,17 @@ export default function DemoPage() {
                 <div className="w-full flex flex-col max-w-[1080px] mx-auto justify-center">
                   <h2 className="text-2xl font-semibold text-left text-[#1D2B3A] mb-2">
                     {selected.name === "Behavioral"
-                      ? `Tell me about yourself. Why don${`’`}t you walk me through your resume?`
+                      ? `Tell me about a time when you led a team through a difficult situation?`
                       : selectedInterviewer.name === "John"
                       ? "What is a Hash Table, and what is the average case and worst case time for each of its operations?"
+                      : selectedInterviewer.name === "Jenny"
+                      ? "Structure this case: Your client is a global tech company that's developing a new artificial intelligence product. They are planning to launch ..."
                       : selectedInterviewer.name === "Richard"
                       ? "Uber is looking to expand its product line. Talk me through how you would approach this problem."
                       : "You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"}
                   </h2>
                   <span className="text-[14px] leading-[20px] text-[#1a2b3b] font-normal mb-4">
-                    Asked by top companies like Google, Facebook and more
+                    Asked by top companies like McKinsey, BCG, and Bain
                   </span>
                   <motion.div
                     initial={{ y: -20 }}
@@ -522,26 +554,7 @@ export default function DemoPage() {
                               className="h-full object-cover w-full rounded-md md:rounded-[12px] aspect-video"
                               crossOrigin="anonymous"
                             >
-                              <source
-                                src={
-                                  selectedInterviewer.name === "John"
-                                    ? selected.name === "Behavioral"
-                                      ? "https://liftoff-public.s3.amazonaws.com/DemoInterviewMale.mp4"
-                                      : "https://liftoff-public.s3.amazonaws.com/JohnTechnical.mp4"
-                                    : selectedInterviewer.name === "Richard"
-                                    ? selected.name === "Behavioral"
-                                      ? "https://liftoff-public.s3.amazonaws.com/RichardBehavioral.mp4"
-                                      : "https://liftoff-public.s3.amazonaws.com/RichardTechnical.mp4"
-                                    : selectedInterviewer.name === "Sarah"
-                                    ? selected.name === "Behavioral"
-                                      ? "https://liftoff-public.s3.amazonaws.com/BehavioralSarah.mp4"
-                                      : "https://liftoff-public.s3.amazonaws.com/SarahTechnical.mp4"
-                                    : selected.name === "Behavioral"
-                                    ? "https://liftoff-public.s3.amazonaws.com/DemoInterviewMale.mp4"
-                                    : "https://liftoff-public.s3.amazonaws.com/JohnTechnical.mp4"
-                                }
-                                type="video/mp4"
-                              />
+                              <source src={getVideoUrl()} type="video/mp4" />
                             </video>
                           </div>
                         </div>
@@ -846,7 +859,7 @@ export default function DemoPage() {
                     Select a question type
                   </h2>
                   <p className="text-[14px] leading-[20px] text-[#1a2b3b] font-normal my-4">
-                    We have hundreds of questions from top tech companies.
+                    We have hundreds of questions from top consulting firms.
                     Choose a type to get started.
                   </p>
                   <div>
@@ -1722,6 +1735,17 @@ export default function DemoPage() {
                         alt="Sarah's Interviewer Profile"
                         className="absolute top-6 left-6 w-[30%] aspect-video bg-gray-700 rounded ring-1 ring-gray-900/5 shadow-md object-cover"
                       />
+                    ) : selectedInterviewer.name === "Jenny" ? (
+                      <motion.img
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                        key="Jenny"
+                        src="/placeholders/Jenny.webp"
+                        alt="Jenny's Interviewer Profile"
+                        className="absolute top-6 left-6 w-[30%] aspect-video bg-gray-700 rounded ring-1 ring-gray-900/5 shadow-md object-cover"
+                      />
                     ) : (
                       <div className="absolute top-6 left-6 w-[30%] aspect-video bg-gray-700 rounded"></div>
                     )}
@@ -1763,14 +1787,14 @@ export default function DemoPage() {
                             <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-zinc-900/[7.5%] group-hover:ring-zinc-900/10"></div>
                             <div className="relative flex h-full flex-col overflow-hidden">
                               <div className="flex items-center text-left text-[#1a2b3b]">
-                                <p>Why this company?</p>
+                                <p>Why this consultancy?</p>
                               </div>
                               <p className="text-wrap grow font-normal text-[7px]">
-                                Why do you want to work for Google?
+                                Why do you want to work for Bain?
                               </p>
                               <div className="flex flex-row space-x-1">
                                 <p className="inline-flex items-center justify-center truncate rounded-full border-[0.5px] border-gray-300 px-[3px] text-[7px] font-normal hover:bg-gray-50">
-                                  Product Management
+                                  Personal Fit
                                 </p>
                                 <p className="inline-flex items-center justify-center truncate rounded-full border-[0.5px] border-[#D0E7DC] bg-[#F3FAF1] px-[3px] text-[7px] font-normal hover:bg-[#edf8ea]">
                                   <span className="mr-1 flex items-center text-emerald-600">
@@ -2155,15 +2179,15 @@ export default function DemoPage() {
                             <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-zinc-900/[7.5%] group-hover:ring-zinc-900/10"></div>
                             <div className="relative flex h-full flex-col overflow-hidden">
                               <div className="flex items-center text-left text-[#1a2b3b]">
-                                <p>How would you rebuild Twitter?</p>
+                                <p>How should Uber enter the Indian market?</p>
                               </div>
                               <p className="text-wrap grow font-normal text-[7px]">
-                                Given what you know about Twitter, how would you
-                                architect it from the ground up?
+                                Given what you know about Uber, how would you
+                                structure the market entry?
                               </p>
                               <div className="flex flex-row space-x-1">
                                 <p className="inline-flex items-center justify-center truncate rounded-full border-[0.5px] border-gray-300 px-[3px] text-[7px] font-normal hover:bg-gray-50">
-                                  Systems Design
+                                  Market Entry
                                 </p>
                                 <p className="inline-flex items-center justify-center truncate rounded-full border-[0.5px] border-[#D0E7DC] bg-[#F3FAF1] px-[3px] text-[7px] font-normal hover:bg-[#edf8ea]">
                                   <span className="mr-1 flex items-center text-emerald-600">
