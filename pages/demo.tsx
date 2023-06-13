@@ -498,7 +498,7 @@ export default function DemoPage() {
                       ? "Structure this case: Your client is a global tech company that's developing a new artificial intelligence product. They are planning to launch ..."
                       : selectedInterviewer.name === "Richard"
                       ? "Uber is looking to expand its product line. Talk me through how you would approach this problem."
-                      : "PEI: You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"}
+                      : "You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"}
                   </h2>
                   <span className="text-[14px] leading-[20px] text-[#1a2b3b] font-normal mb-4">
                     Asked by top companies like McKinsey, BCG, and Bain
@@ -1403,7 +1403,7 @@ export default function DemoPage() {
                 <ul className="mb-auto list-none">
                   <li className="list-none flex items-center">
                     <p className="text-[12px] font-extrabold text-[#1E293B]">
-                      AIprep
+                      Liftoff
                     </p>
                   </li>
                   <li className="mt-4 list-none flex items-center rounded-[9px] text-gray-900 py-[2px]">
@@ -1673,7 +1673,7 @@ export default function DemoPage() {
                         : selectedInterviewer.name === "John"
                         ? "What is a Hash Table, and what is the average case for each of its operations?"
                         : selectedInterviewer.name === "Jenny"
-                        ? "Structure this case: Your client is a global tech company that's developing a new artificial intelligence product. They are planning to launch ..."
+                        ? "Your client is a global tech company that's developing a new artificial intelligence product. They are planning to launch this product in the next fiscal year but are unsure of the best approach to take. What would you suggest?"
                         : selectedInterviewer.name === "Richard"
                         ? "Uber is looking to expand its product line. How would you go about doing this?"
                         : "You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"}
@@ -1688,9 +1688,7 @@ export default function DemoPage() {
                         </li>
                       ) : (
                         <li className="list-none max-w-[400px]">
-                          {/* Start off by explaining what the function does, and
-                          its time and space complexities. Then go into how you
-                          would optimize it. */}
+                         Lay out the structure of the case.
                         </li>
                       )}
                     </ul>
