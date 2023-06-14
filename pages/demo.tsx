@@ -419,8 +419,8 @@ export default function DemoPage() {
                     as you leave the page.
                   </p>
                 </div>
-                {/* <Link
-                  href="https://github.com/Tameyer41/liftoff"
+                <Link
+                  href="https://github.com/gerwinf/ai-prep"
                   target="_blank"
                   className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
                   style={{
@@ -450,7 +450,7 @@ export default function DemoPage() {
                       ></path>
                     </svg>
                   </span>
-                  Star on Github */}
+                  Star on Github
                 </Link>
               </motion.div>
               <motion.div
@@ -775,8 +775,8 @@ export default function DemoPage() {
                     >
                       Restart demo
                     </button>
-                    {/* <Link
-                      href="https://github.com/Tameyer41/liftoff"
+                    <Link
+                      href="https://github.com/gerwinf/ai-prep"
                       target="_blank"
                       className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
                       style={{
@@ -807,7 +807,7 @@ export default function DemoPage() {
                         </svg>
                       </span>
                       Star on Github
-                    </Link> */}
+                    </Link>
                   </div>
                 </div>
               )}
