@@ -2,26 +2,26 @@ import "../styles/globals.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Liftoff - AI-Powered Mock Interviews",
+  title: "AIPrep - GPT-Powered Case Interviews",
   openGraph: {
-    title: "Liftoff - AI-Powered Mock Interviews",
+    title: "AIPrep - GPT-Powered Case Interviews",
     description:
-      "Liftoff is an AI-powered mock interview platform that helps you practice for your next job interview.",
+      "AIPrep is the GPT-powered case interview platform that helps you practice for your consulting interview.",
     images: [
       {
-        url: "https://demo.useliftoff.com/opengraph-image",
+        url: "https://ai-prep-nine.vercel.app/opengraph-image",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Liftoff - AI-Powered Mock Interviews",
+    title: "AIPrep - GPT-Powered Case Interviews",
     description:
-      "Liftoff is an AI-powered mock interview platform that helps you practice for your next job interview.",
-    images: ["https://demo.useliftoff.com/opengraph-image"],
-    creator: "@tmeyer_me",
+      "AIPrep is the GPT-powered case interview platform that helps you practice for your consulting interview.",
+    images: ["https://ai-prep-nine.vercel.app/opengraph-image"],
+    creator: "@tmeyer_me, @gerwinfricke", 
   },
-  metadataBase: new URL("https://demo.useliftoff.com"),
+  metadataBase: new URL("https://ai-prep-nine.vercel.app"),
   themeColor: "#FFF",
 };
 
