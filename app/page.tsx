@@ -102,7 +102,7 @@ export default function Home() {
                 ease: [0.075, 0.82, 0.965, 1],
               }}
             >
-              <Link
+              {/* <Link
                 href="https://github.com/Tameyer41/liftoff"
                 target="_blank"
                 className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
@@ -134,7 +134,7 @@ export default function Home() {
                   </svg>
                 </span>
                 Star on Github
-              </Link>
+              </Link> */}
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
