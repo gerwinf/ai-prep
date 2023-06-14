@@ -491,7 +491,7 @@ export default function DemoPage() {
                 <div className="w-full flex flex-col max-w-[1080px] mx-auto justify-center">
                   <h2 className="text-2xl font-semibold text-left text-[#1D2B3A] mb-2">
                     {selected.name === "Behavioral"
-                      ? `Tell me about a time when you led a team through a difficult situation?`
+                      ? `PEI: Tell me about a time when you led a team through a difficult situation?`
                       : selectedInterviewer.name === "John"
                       ? "What is a Hash Table, and what is the average case and worst case time for each of its operations?"
                       : selectedInterviewer.name === "Jenny"
@@ -1670,13 +1670,12 @@ export default function DemoPage() {
                     >
                       {selected.name === "Behavioral"
                         ? "PEI: Tell me about a time when you led a team through a difficult situation."
-                        : selectedInterviewer.name === "John"
-                        ? "What is a Hash Table, and what is the average case for each of its operations?"
-                        : selectedInterviewer.name === "Jenny"
+                        : "Your client is a global tech company that's developing a new artificial intelligence product. They are planning to launch this product in the next fiscal year but are unsure of the best approach to take. What would you suggest?"}
+                        {/* : selectedInterviewer.name === "Jenny"
                         ? "Your client is a global tech company that's developing a new artificial intelligence product. They are planning to launch this product in the next fiscal year but are unsure of the best approach to take. What would you suggest?"
                         : selectedInterviewer.name === "Richard"
                         ? "Uber is looking to expand its product line. How would you go about doing this?"
-                        : "You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"}
+                        : "You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"} */}
                     </motion.span>
 
                     <ul className="mt-[28px] flex">
