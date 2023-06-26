@@ -79,9 +79,9 @@ export default function Home() {
             }}
             className="relative md:ml-[-10px] md:mb-[37px] font-extrabold text-[16vw] md:text-[130px] font-inter text-[#1E2B3A] leading-[0.9] tracking-[-2px] z-[100]"
           >
-            Practice <span className="font-inter text-[#407BBF]">PEI {"&"} </span> <br /> 
-            <span className="font-inter text-[#407BBF]">case </span>
-            questions.
+            Master <span className="font-inter text-[#407BBF]">case</span> <br />
+            <span className="font-inter text-[#407BBF]"> interviews</span> <br />
+            in real-time. 
           </motion.h1>
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -95,20 +95,18 @@ export default function Home() {
           >
             <div className="w-1/2">
               <h2 className="flex items-center font-semibold text-[1em] text-[#1a2b3b]">
-                Platform
+                Real-time Practice
               </h2>
               <p className="text-[14px] leading-[20px] text-[#1a2b3b] font-normal">
-                Full access to our platform, including all questions and
-                solutions.
+                Record yourself answering PEI questions or doing case structuring drills.
               </p>
             </div>
             <div className="w-1/2">
               <h2 className="flex items-center font-semibold text-[1em] text-[#1a2b3b]">
-                Community
+                Real-time Feedback
               </h2>
               <p className="text-[14px] leading-[20px] text-[#1a2b3b] font-normal">
-                Join a community of like-minded individuals, and learn from each
-                other.
+                Get instant actionable feedback, AI-powered and based on MBB standards.
               </p>
             </div>
           </motion.div>
@@ -229,7 +227,7 @@ export default function Home() {
         ></motion.canvas>
         <div className="h-[60px] bg-[#1D2B3A] fixed bottom-0 z-20 w-full flex flex-row items-center justify-evenly">
           <p className="text-white/80 text-base md:text-lg font-semibold md:leading-[60px] whitespace-nowrap flex flex-row">
-            Case interviews from McKinsey, BCG, Bain, Roland Berger, Oliver Wyman, AT Kearney, and more
+            Case interviews from McKinsey, BCG, Bain, and more
           </p>
           {/* <svg
             className="w-[20px] opacity-80"
